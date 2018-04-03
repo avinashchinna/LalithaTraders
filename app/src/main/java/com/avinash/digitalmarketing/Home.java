@@ -31,8 +31,9 @@ public class Home extends AppCompatActivity implements TabLayout.OnTabSelectedLi
         setSupportActionBar(toolbar);
 
         tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setText("Home"));
-        tabLayout.addTab(tabLayout.newTab().setText("ALL ORDERS"));
+        tabLayout.addTab(tabLayout.newTab().setText("Brands"));
+        tabLayout.addTab(tabLayout.newTab().setText("Current ORDERS"));
+        tabLayout.addTab(tabLayout.newTab().setText("Past ORDERS"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         viewPager = findViewById(R.id.pager);
@@ -76,6 +77,10 @@ public class Home extends AppCompatActivity implements TabLayout.OnTabSelectedLi
 
             case R.id.contact_details:
                 Intent intent = new Intent(getApplicationContext(), Contact.class);
+                startActivity(intent);
+
+            case R.id.edit_profile:
+                intent = new Intent(getApplicationContext(), Profile.class);
                 startActivity(intent);
         }
 

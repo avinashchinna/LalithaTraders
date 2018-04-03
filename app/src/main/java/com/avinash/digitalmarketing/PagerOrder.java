@@ -25,11 +25,11 @@ public class PagerOrder extends FragmentStatePagerAdapter {
         //Returning the current tabs
         switch (position) {
             case 0:
-                Brands ot  = new Brands();
-                return ot;
+                return new Brands();
             case 1:
-                AllordersTab aot = new AllordersTab();
-                return aot;
+                return new CurrentOrders();
+            case 2:
+                return new PastOrders();
             default:
                 return null;
         }

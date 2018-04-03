@@ -1,5 +1,6 @@
 package com.avinash.digitalmarketing;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
@@ -226,8 +228,11 @@ public class ProductDescription extends AppCompatActivity {
                             item_id.setText(Integer.toString(json_data.getInt("id")));
                             item_name.setText(json_data.getString("name"));
                             item_cost.setText(Integer.toString(json_data.getInt("cost")));
-                            quantity.setHint("No. of Pieces");
                             quantity.setInputType(InputType.TYPE_CLASS_NUMBER);
+//                            quantity.setHint("e.g- 10");
+                            quantity.requestFocus();
+                            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
                             String color = "#f50057";
 
