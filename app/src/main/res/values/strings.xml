@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Lalitha Traders</string>
+    <string name="editText1">Username</string>
+    <string name="editText2">Password</string>
+    <string name="editText3">Email</string>
+    <string name="editText4">re-enter Password</string>
+    <string name="editText5">Address</string>
+    <string name="Login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="signup">Sign Up</string>
+    <string name="offers">OFFERS :</string>
+    <string name="description">DESCRIPTION :</string>
+    <string name="additional_info">ADDITIONAL INFO :</string>
+    <string name="brand">BRAND :</string>
+    <string name="product_name">PRODUCT NAME :</string>
+    <string name="types">TYPES AVAILABLE :</string>
+    <string name="order">Order</string>
+    <string name="contact_details">Contact Details</string>
+
+    <string name="contact_company_name">Company Name : Lalitha Traders</string>
+    <string name="contact_owner_name">Owner Name : Sanka Prasad</string>
+    <string name="contact_address">Address : 11-63-49, brahmin street, Vijayawada, Andhra Pradesh, 520001</string>
+    <string name="contact_phn_number">Phone Number : 9246621253</string>
+    <string name="contact_email">Email Address : lalithatraders.vijayawada@gmail.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
