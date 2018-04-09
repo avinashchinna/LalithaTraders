@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -40,9 +41,9 @@ public class logintab extends Fragment {
         txt2 = (EditText) mview.findViewById(R.id.password);
         b1 = (Button) mview.findViewById(R.id.login);
         b1.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+            public void onClick(final View v){
                 if(attemptlogin()){
-                    new authentication().execute();
+                    new authentication(v).execute();
                 }
             }
         });
@@ -84,6 +85,12 @@ public class logintab extends Fragment {
 
     private class authentication extends AsyncTask<String, String, String> {
 
+        View v;
+
+        private authentication(View _v){
+            v = _v;
+        }
+
         private ProgressDialog pDialog;
 
         @Override
@@ -91,7 +98,7 @@ public class logintab extends Fragment {
             pDialog = new ProgressDialog(getActivity());
             pDialog.setMessage("Attempting login...");
             pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
+            pDialog.setCancelable(false);
             pDialog.show();
         }
 
@@ -125,7 +132,7 @@ public class logintab extends Fragment {
                         getActivity().startActivity(intent);
                     } else {
                         String msg = jobj.getString("msg");
-                        Toast.makeText(getActivity(), msg,Toast.LENGTH_SHORT).show();
+                        Snackbar.make(v,msg,Snackbar.LENGTH_LONG).show();
                     }
                 } catch (Exception ex) {
                     //null error

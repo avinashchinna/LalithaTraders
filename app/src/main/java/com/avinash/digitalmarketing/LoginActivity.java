@@ -11,6 +11,7 @@ import java.net.CookieManager;
 public class LoginActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
 
     static final String url = "https://lalithatraders.herokuapp.com";
+//    static final String url = "http://10.42.0.1:8000";
     //This is our tablayout
     private TabLayout tabLayout1;
 

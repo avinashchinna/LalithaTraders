@@ -230,9 +230,12 @@ public class ProductDescription extends AppCompatActivity {
                             item_cost.setText(Integer.toString(json_data.getInt("cost")));
                             quantity.setInputType(InputType.TYPE_CLASS_NUMBER);
 //                            quantity.setHint("e.g- 10");
-                            quantity.requestFocus();
-                            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                            if(i==0){
+                                quantity.requestFocus();
+                                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+                            }
+
 
                             String color = "#f50057";
 
@@ -345,6 +348,10 @@ public class ProductDescription extends AppCompatActivity {
             case android.R.id.home:
                 super.onBackPressed();
                 return true;
+
+            case R.id.edit_profile:
+                intent = new Intent(getApplicationContext(), Profile.class);
+                startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

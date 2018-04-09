@@ -29,7 +29,8 @@
             android:name=".Contact"
             android:noHistory="true" />
         <activity android:name=".PastOrders" />
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".Profile" />
+        <activity android:name=".EditProfile"></activity>
     </application>
 
 </manifest>

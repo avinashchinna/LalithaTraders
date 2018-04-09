@@ -35,7 +35,6 @@ public class Products extends AppCompatActivity implements View.OnClickListener{
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             brand_name = extras.getString("brand");
-            System.out.println("brand" + brand_name);
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
@@ -168,6 +167,10 @@ public class Products extends AppCompatActivity implements View.OnClickListener{
             case android.R.id.home:
                 super.onBackPressed();
                 return true;
+
+            case R.id.edit_profile:
+                intent = new Intent(getApplicationContext(), Profile.class);
+                startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

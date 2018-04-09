@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -48,9 +49,9 @@ public class signuptab extends Fragment {
 
         b1 = (Button) mview.findViewById(R.id.register);
         b1.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+            public void onClick(final View v){
                 if(attemptlogin()){
-                    new authentication().execute();
+                    new authentication(v).execute();
                 }
             }
         });
@@ -148,13 +149,18 @@ public class signuptab extends Fragment {
     private class authentication extends AsyncTask<String, String, String> {
 
         private ProgressDialog pDialog;
+        View v;
+
+        private authentication(View _v){
+            v = _v;
+        }
 
         @Override
         protected void onPreExecute() {
             pDialog = new ProgressDialog(getActivity());
             pDialog.setMessage("Registering...");
             pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
+            pDialog.setCancelable(false);
             pDialog.show();
         }
 
@@ -189,13 +195,13 @@ public class signuptab extends Fragment {
                     boolean status = jobj.getBoolean("status");
                     if (status) {
                         String msg = jobj.getString("msg");
-                        Toast.makeText(getActivity(), msg,Toast.LENGTH_SHORT).show();
+                        Snackbar.make(v,msg,Snackbar.LENGTH_LONG).show();
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         getActivity().startActivity(intent);
                     } else {
                         String msg = jobj.getString("msg");
-                        Toast.makeText(getActivity(), msg,Toast.LENGTH_SHORT).show();
+                        Snackbar.make(v,msg,Snackbar.LENGTH_LONG).show();
                     }
                 } catch (Exception ex) {
                     //null error
